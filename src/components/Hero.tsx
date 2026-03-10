@@ -4,7 +4,7 @@ import { ArrowRight, Play } from 'lucide-react';
 
 export const Hero = () => {
     return (
-        <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
+        <section id="home" className="relative h-screen w-full flex items-center justify-center overflow-hidden">
             <div className="absolute inset-0 z-0 bg-[#1C1C1A]">
                 <motion.img
                     initial={{ opacity: 0, scale: 1.05 }}

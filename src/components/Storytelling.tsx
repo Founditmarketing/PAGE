@@ -4,7 +4,7 @@ import { CheckCircle2 } from 'lucide-react';
 
 export const Storytelling = () => {
     return (
-        <section className="py-32 px-6 max-w-7xl mx-auto">
+        <section id="about" className="py-32 px-6 max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <motion.div
                     initial={{ opacity: 0, x: -30 }}

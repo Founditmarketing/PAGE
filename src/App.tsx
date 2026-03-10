@@ -1,4 +1,5 @@
 import React from 'react';
+import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { TrustBanner } from './components/TrustBanner';
 import { Storytelling } from './components/Storytelling';
@@ -10,6 +11,7 @@ import { Footer } from './components/Footer';
 export default function App() {
   return (
     <div className="min-h-screen bg-[#F5F4F0] text-[#1C1C1A] font-sans overflow-x-hidden">
+      <Header />
       <Hero />
       <TrustBanner />
       <Storytelling />

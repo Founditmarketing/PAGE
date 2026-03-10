@@ -24,7 +24,7 @@ export const GeneratedPortfolio = () => {
     ];
 
     return (
-        <section className="py-24 px-6 max-w-7xl mx-auto">
+        <section id="portfolio" className="py-24 px-6 max-w-7xl mx-auto">
             <div className="text-center max-w-3xl mx-auto mb-16">
                 <span className="text-[#B8735C] uppercase tracking-widest text-sm font-semibold mb-4 block">Bespoke Finishes</span>
                 <h2 className="font-serif text-4xl md:text-5xl mb-6">Signature Concrete Textures</h2>
