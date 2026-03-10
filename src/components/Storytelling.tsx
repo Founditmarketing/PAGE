@@ -15,7 +15,7 @@ export const Storytelling = () => {
                 >
                     <div className="aspect-[4/5] rounded-3xl overflow-hidden bg-gray-200">
                         <img
-                            src="/images/story_patio.png"
+                            src="/images/story_patio_bluecollar.png"
                             alt="Architectural concrete patio"
                             className="w-full h-full object-cover"
                         />

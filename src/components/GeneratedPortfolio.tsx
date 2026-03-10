@@ -8,17 +8,17 @@ export const GeneratedPortfolio = () => {
     const portfolio = [
         {
             title: "Ashlar Slate Patio",
-            img: "/images/port_ashlar.png",
+            img: "/images/port_ashlar_bluecollar.png",
             desc: "Warm terracotta and charcoal gray tones in a classic seamless slate texture."
         },
         {
             title: "Cobblestone Driveway",
-            img: "/images/port_cobble.png",
+            img: "/images/port_cobble_bluecollar.png",
             desc: "Rich earthy brown and gray colors configured in a wide European cobblestone pattern."
         },
         {
             title: "Wood-Plank Pool Deck",
-            img: "/images/port_wood.png",
+            img: "/images/port_wood_bluecollar.png",
             desc: "Weathered wood grain texture permanently stamped into structural concrete."
         }
     ];
