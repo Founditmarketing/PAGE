@@ -1,52 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'motion/react';
-import { ArrowRight, Play, Loader2 } from 'lucide-react';
-import { ai } from '../lib/gemini';
+import { ArrowRight, Play } from 'lucide-react';
 
 export const Hero = () => {
-    const [bgImage, setBgImage] = useState<string | null>(null);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        const generateHero = async () => {
-            try {
-                const response = await ai.models.generateContent({
-                    model: 'gemini-2.5-flash-image',
-                    contents: { parts: [{ text: "Photorealistic architectural photography, wide angle, luxury modern home exterior at golden hour, featuring a sweeping premium stamped concrete driveway in a seamless slate pattern. High-end landscaping, warm lighting." }] },
-                    config: { imageConfig: { aspectRatio: "16:9" } }
-                });
-                const part = response.candidates?.[0]?.content?.parts?.find(p => p.inlineData);
-                if (part?.inlineData) {
-                    setBgImage(`data:${part.inlineData.mimeType || 'image/png'};base64,${part.inlineData.data}`);
-                }
-            } catch (err) {
-                console.error("Hero image generation failed", err);
-                setBgImage("https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2070&auto=format&fit=crop");
-            } finally {
-                setLoading(false);
-            }
-        };
-        generateHero();
-    }, []);
-
     return (
         <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
             <div className="absolute inset-0 z-0 bg-[#1C1C1A]">
-                {loading ? (
-                    <div className="w-full h-full flex items-center justify-center">
-                        <Loader2 className="w-12 h-12 animate-spin text-[#B8735C]" />
-                    </div>
-                ) : (
-                    <motion.img
-                        initial={{ opacity: 0, scale: 1.05 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 1.5 }}
-                        src={bgImage!}
-                        alt="Modern concrete architecture"
-                        className="w-full h-full object-cover"
-                        referrerPolicy="no-referrer"
-                    />
-                )}
+                <motion.img
+                    initial={{ opacity: 0, scale: 1.05 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1.5 }}
+                    src="/images/hero_bg.png"
+                    alt="Modern concrete architecture"
+                    className="w-full h-full object-cover"
+                />
                 <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-[#F5F4F0]/90"></div>
             </div>
 

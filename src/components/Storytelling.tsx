@@ -1,34 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { motion } from 'motion/react';
-import { CheckCircle2, Loader2 } from 'lucide-react';
-import { ai } from '../lib/gemini';
+import { CheckCircle2 } from 'lucide-react';
 
 export const Storytelling = () => {
-    const [image, setImage] = useState<string | null>(null);
-    const [loading, setLoading] = useState(true);
-
-    useEffect(() => {
-        const generateStoryImage = async () => {
-            try {
-                const response = await ai.models.generateContent({
-                    model: 'gemini-2.5-flash-image',
-                    contents: { parts: [{ text: "Photorealistic architectural photography, luxury backyard patio featuring high-end decorative stamped concrete. Seamless texture, warm earthy tones, outdoor kitchen in background, sunny day." }] },
-                    config: { imageConfig: { aspectRatio: "3:4" } }
-                });
-                const part = response.candidates?.[0]?.content?.parts?.find(p => p.inlineData);
-                if (part?.inlineData) {
-                    setImage(`data:${part.inlineData.mimeType || 'image/png'};base64,${part.inlineData.data}`);
-                }
-            } catch (err) {
-                console.error("Story image generation failed", err);
-                setImage("https://images.unsplash.com/photo-1517646287270-a5a9ca602e5c?q=80&w=2070&auto=format&fit=crop");
-            } finally {
-                setLoading(false);
-            }
-        };
-        generateStoryImage();
-    }, []);
-
     return (
         <section className="py-32 px-6 max-w-7xl mx-auto">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -39,17 +13,12 @@ export const Storytelling = () => {
                     transition={{ duration: 0.8 }}
                     className="relative"
                 >
-                    <div className="aspect-[4/5] rounded-3xl overflow-hidden bg-gray-200 flex items-center justify-center">
-                        {loading ? (
-                            <Loader2 className="w-8 h-8 animate-spin text-[#B8735C]" />
-                        ) : (
-                            <img
-                                src={image!}
-                                alt="Architectural concrete patio"
-                                className="w-full h-full object-cover"
-                                referrerPolicy="no-referrer"
-                            />
-                        )}
+                    <div className="aspect-[4/5] rounded-3xl overflow-hidden bg-gray-200">
+                        <img
+                            src="/images/story_patio.png"
+                            alt="Architectural concrete patio"
+                            className="w-full h-full object-cover"
+                        />
                     </div>
                     <div className="absolute -bottom-8 -right-8 bg-white p-6 rounded-2xl shadow-xl max-w-xs hidden md:block">
                         <p className="font-serif text-xl italic mb-2">"They didn't just pour a driveway, they elevated our entire property."</p>
