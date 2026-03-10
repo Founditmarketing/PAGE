@@ -18,7 +18,7 @@ export const GeneratedPortfolio = () => {
         },
         {
             title: "Wood-Plank Pool Deck",
-            img: "https://images.unsplash.com/photo-1584622781864-1e089a80e466?q=80&w=2070&auto=format&fit=crop",
+            img: "/images/port_wood.png",
             desc: "Weathered wood grain texture permanently stamped into structural concrete."
         }
     ];

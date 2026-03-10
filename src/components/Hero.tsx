@@ -10,7 +10,7 @@ export const Hero = () => {
                     initial={{ opacity: 0, scale: 1.05 }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 1.5 }}
-                    src="/images/hero_bg.png"
+                    src="/images/hero_bg_new1.png"
                     alt="Modern concrete architecture"
                     className="w-full h-full object-cover"
                 />
