@@ -12,15 +12,28 @@ export const QuoteFlow = () => {
         if (step < 3) setStep(step + 1);
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+
+        // This is where you would normally send the data to a backend or service like Formspree
+        // Example implementation:
+        /*
+        const response = await fetch('https://formspree.io/f/YOUR_FORM_ID_HERE', {
+            method: 'POST',
+            body: JSON.stringify(formData),
+            headers: { 'Accept': 'application/json' }
+        });
+        */
+
+        // Simulating network request
+        await new Promise(resolve => setTimeout(resolve, 800));
         setIsSubmitted(true);
     };
 
     const resetForm = () => {
         setIsSubmitted(false);
         setStep(1);
-        setFormData({ type: '', scope: '', timeline: '' });
+        setFormData({ type: '', scope: '', timeline: '', name: '', email: '', phone: '' });
     };
 
     return (
@@ -93,9 +106,9 @@ export const QuoteFlow = () => {
                             >
                                 <h3 className="font-serif text-3xl mb-8 text-center">Where should we send your estimate?</h3>
                                 <form className="space-y-4 w-full max-w-md" onSubmit={handleSubmit}>
-                                    <input type="text" placeholder="Full Name" required className="w-full p-4 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-[#B8735C] focus:ring-1 focus:ring-[#B8735C]" />
-                                    <input type="email" placeholder="Email Address" required className="w-full p-4 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-[#B8735C] focus:ring-1 focus:ring-[#B8735C]" />
-                                    <input type="tel" placeholder="Phone Number" required className="w-full p-4 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-[#B8735C] focus:ring-1 focus:ring-[#B8735C]" />
+                                    <input type="text" onChange={(e) => setFormData({ ...formData, name: e.target.value })} placeholder="Full Name" required className="w-full p-4 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-[#B8735C] focus:ring-1 focus:ring-[#B8735C]" />
+                                    <input type="email" onChange={(e) => setFormData({ ...formData, email: e.target.value })} placeholder="Email Address" required className="w-full p-4 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-[#B8735C] focus:ring-1 focus:ring-[#B8735C]" />
+                                    <input type="tel" onChange={(e) => setFormData({ ...formData, phone: e.target.value })} placeholder="Phone Number" required className="w-full p-4 bg-gray-50 border border-gray-200 rounded-xl focus:outline-none focus:border-[#B8735C] focus:ring-1 focus:ring-[#B8735C]" />
                                     <button type="submit" className="w-full bg-[#1C1C1A] text-white p-4 rounded-xl font-semibold uppercase tracking-wider hover:bg-[#B8735C] transition-colors mt-4">
                                         Get My Instant Quote
                                     </button>
