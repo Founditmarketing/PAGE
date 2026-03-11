@@ -27,11 +27,11 @@ export const Footer = () => {
                     <div>
                         <h3 className="uppercase tracking-widest text-xs font-semibold text-[#B8735C] mb-6">Explore</h3>
                         <ul className="space-y-4 text-sm text-white/60">
-                            <li><a href="#portfolio" className="hover:text-white transition-colors">Our Portfolio</a></li>
-                            <li><a href="#services" className="hover:text-white transition-colors">Residential Services</a></li>
-                            <li><a href="#services" className="hover:text-white transition-colors">Commercial Foundations</a></li>
-                            <li><a href="#quote" className="hover:text-white transition-colors">Interactive Planning Studio</a></li>
-                            <li><a href="#about" className="hover:text-white transition-colors">About Our Craft</a></li>
+                            <li><a href="/#portfolio" className="hover:text-white transition-colors">Our Portfolio</a></li>
+                            <li><a href="/#services" className="hover:text-white transition-colors">Residential Services</a></li>
+                            <li><a href="/#services" className="hover:text-white transition-colors">Commercial Foundations</a></li>
+                            <li><a href="/faq" className="hover:text-white transition-colors">FAQ & Knowledge Base</a></li>
+                            <li><a href="/#about" className="hover:text-white transition-colors">About Our Craft</a></li>
                         </ul>
                     </div>
 

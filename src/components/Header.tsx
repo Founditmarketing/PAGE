@@ -15,17 +15,21 @@ export const Header = () => {
     }, []);
 
     const navLinks = [
-        { name: 'Services', href: '#services' },
-        { name: 'Portfolio', href: '#portfolio' },
-        { name: 'About', href: '#about' },
+        { name: 'Services', href: '/#services' },
+        { name: 'Portfolio', href: '/#portfolio' },
+        { name: 'About', href: '/#about' },
+        { name: 'FAQ', href: '/faq' },
     ];
 
     const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-        e.preventDefault();
         setIsMobileMenuOpen(false);
-        const element = document.querySelector(href);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
+        // If we're clicking an anchor and currently on the root path
+        if (href.startsWith('/#') && window.location.pathname === '/') {
+            e.preventDefault();
+            const element = document.querySelector(href.replace('/#', '#'));
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
         }
     };
 
@@ -36,8 +40,8 @@ export const Header = () => {
         >
             <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
                 <a
-                    href="#home"
-                    onClick={(e) => handleScrollTo(e, '#home')}
+                    href="/#home"
+                    onClick={(e) => handleScrollTo(e, '/#home')}
                     className="font-serif text-2xl text-white z-50 relative tracking-wide"
                 >
                     Page Concrete
@@ -56,8 +60,8 @@ export const Header = () => {
                         </a>
                     ))}
                     <a
-                        href="#quote"
-                        onClick={(e) => handleScrollTo(e, '#quote')}
+                        href="/#quote"
+                        onClick={(e) => handleScrollTo(e, '/#quote')}
                         className="bg-[#B8735C] hover:bg-[#9A5E4A] text-white px-6 py-2.5 rounded-full text-sm uppercase tracking-wider font-semibold transition-all shadow-md"
                     >
                         Get a Quote
@@ -94,8 +98,8 @@ export const Header = () => {
                             </a>
                         ))}
                         <a
-                            href="#quote"
-                            onClick={(e) => handleScrollTo(e, '#quote')}
+                            href="/#quote"
+                            onClick={(e) => handleScrollTo(e, '/#quote')}
                             className="mt-6 bg-[#B8735C] text-white px-10 py-4 rounded-full text-lg uppercase tracking-wider font-semibold shadow-lg"
                         >
                             Get a Quote
